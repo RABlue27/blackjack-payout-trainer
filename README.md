@@ -40,7 +40,7 @@ A fast-paced web-based training application for mastering blackjack payout calcu
 ## 🚀 Quick Start
 
 ### Option 1: GitHub Pages (Recommended)
-Visit the live demo: **[Play Now]([https://your-username.github.io/blackjack-payout-trainer](https://rablue27.github.io/blackjack-payout-trainer/))**
+Visit the live demo: **[Play Now]([https://your-username.github.io/blackjack-payout-trainer](https://rablue27.github.io/blackjack-payout-trainer/](https://rablue27.github.io/blackjack-payout-trainer/)))**
 
 ### Option 2: Local Setup
 ```bash
