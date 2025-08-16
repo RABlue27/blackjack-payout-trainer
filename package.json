@@ -1,0 +1,53 @@
+{
+  "name": "blackjack-payout-trainer",
+  "version": "1.0.0",
+  "description": "A comprehensive web-based training application for casino dealers to practice blackjack payout calculations",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8000 -c-1",
+    "test": "node test-runner.js",
+    "deploy": "node deploy-helper.js",
+    "serve": "python -m http.server 8000 || python3 -m http.server 8000 || http-server -p 8000"
+  },
+  "keywords": [
+    "blackjack",
+    "casino",
+    "training",
+    "payout",
+    "dealer",
+    "education",
+    "gambling",
+    "cards"
+  ],
+  "author": "Blackjack Payout Trainer Team",
+  "license": "MIT",
+  "homepage": "https://github.com/username/blackjack-payout-trainer",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/blackjack-payout-trainer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/username/blackjack-payout-trainer/issues"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "Chrome >= 90",
+    "Firefox >= 88",
+    "Safari >= 14",
+    "Edge >= 90"
+  ],
+  "files": [
+    "index.html",
+    "styles.css",
+    "script.js",
+    "test-suite.js",
+    "README.md",
+    "USER_GUIDE.md",
+    "DEVELOPER_GUIDE.md"
+  ]
+}

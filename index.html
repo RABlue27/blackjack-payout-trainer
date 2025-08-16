@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack Payout Trainer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="game-container">
+        <!-- Header Section -->
+        <header class="game-header" role="banner">
+            <h1>Blackjack Payout Trainer</h1>
+            <div class="score-display" role="status" aria-live="polite" aria-label="Current game score">
+                <span class="score-label">Score:</span>
+                <span id="correct-count" aria-label="Correct answers">0</span>/<span id="total-count" aria-label="Total attempts">0</span>
+                <span class="accuracy">(<span id="accuracy-percent" aria-label="Accuracy percentage">0</span>%)</span>
+            </div>
+            <div class="header-buttons" role="toolbar" aria-label="Game controls">
+                <button id="show-stats" class="stats-btn" aria-label="Show detailed statistics">📊 Stats</button>
+                <button id="run-tests" class="test-btn" aria-label="Run comprehensive test suite">🧪 Tests</button>
+                <button id="reset-game" class="reset-btn" aria-label="Reset game and clear progress">Reset Game</button>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main id="main-content" class="game-table" role="main" aria-label="Blackjack practice table">
+            <!-- Dealer Area -->
+            <section class="dealer-area" aria-labelledby="dealer-heading">
+                <h2 id="dealer-heading">Dealer</h2>
+                <div class="card-area" id="dealer-cards" role="region" aria-label="Dealer's cards" aria-live="polite">
+                    <!-- Dealer cards will be displayed here -->
+                </div>
+            </section>
+
+            <!-- Player Area -->
+            <section class="player-area" aria-labelledby="player-heading">
+                <h2 id="player-heading">Player</h2>
+                <div class="card-area" id="player-cards" role="region" aria-label="Player's cards" aria-live="polite">
+                    <!-- Player cards will be displayed here -->
+                </div>
+                <div class="bet-info" role="status" aria-label="Current bet amount">
+                    <span class="bet-label">Player's Bet:</span>
+                    <div id="bet-chips" class="bet-chips-display" aria-live="polite">
+                        <!-- Bet chips will be displayed here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Scenario Info -->
+            <section class="scenario-info" role="status" aria-live="polite" aria-label="Hand result and instructions">
+                <div class="hand-result">
+                    <span class="result-label">Result:</span>
+                    <span id="hand-result" class="result-value" aria-live="assertive">-</span>
+                </div>
+                <div class="payout-instruction">
+                    <span id="payout-instruction-text" aria-live="polite">Select chips to make the correct payout</span>
+                </div>
+            </section>
+        </main>
+
+        <!-- Game Controls -->
+        <section class="game-controls" role="region" aria-label="Game controls and chip selection">
+            <!-- Payout Area -->
+            <div class="payout-area" role="region" aria-labelledby="payout-heading">
+                <h3 id="payout-heading">Payout Area</h3>
+                <div class="payout-chips" id="payout-chips" role="region" aria-label="Selected chips for payout" aria-live="polite" aria-describedby="payout-total">
+                    <!-- Selected chips for payout will appear here -->
+                </div>
+                <div class="payout-total" role="status" aria-live="polite">
+                    <span class="total-label">Total:</span>
+                    <span id="payout-total" class="total-value" aria-label="Current payout total">$0.00</span>
+                </div>
+                <div class="payout-actions" role="group" aria-label="Payout actions">
+                    <button id="submit-payout" class="submit-btn" aria-label="Submit current payout selection" aria-describedby="payout-total">Submit Payout</button>
+                    <button id="clear-payout" class="clear-btn" aria-label="Clear all selected chips">Clear</button>
+                </div>
+            </div>
+
+            <!-- Chip Tray -->
+            <div class="chip-tray" role="region" aria-labelledby="chip-tray-heading">
+                <h3 id="chip-tray-heading">Chip Tray</h3>
+                <div class="chip-denominations" id="chip-tray" role="group" aria-label="Available chip denominations">
+                    <!-- Chip denominations will be populated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback Area -->
+        <section class="feedback-area" id="feedback-area" role="status" aria-live="polite" aria-label="Game feedback and messages">
+            <div class="feedback-content" id="feedback-content">
+                <!-- Feedback messages will appear here -->
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="test-suite.js"></script>
+</body>
+</html>

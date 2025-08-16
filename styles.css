@@ -1,0 +1,1474 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0f4c3a 0%, #1a5c4a 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: auto;
+}
+
+/* Game Container */
+.game-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    min-width: 1024px;
+}
+
+/* Header Styles */
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #d4af37;
+}
+
+.game-header h1 {
+    font-size: 2.2rem;
+    color: #d4af37;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.score-display {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.score-label {
+    color: #cccccc;
+}
+
+.accuracy {
+    color: #d4af37;
+}
+
+/* Header Buttons */
+.header-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.reset-btn, .stats-btn, .test-btn {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.reset-btn {
+    background: #c41e3a;
+    color: white;
+}
+
+.reset-btn:hover {
+    background: #a01729;
+    transform: translateY(-1px);
+}
+
+.stats-btn {
+    background: #4169e1;
+    color: white;
+}
+
+.stats-btn:hover {
+    background: #1e4db8;
+    transform: translateY(-1px);
+}
+
+.test-btn {
+    background: #9932cc;
+    color: white;
+}
+
+.test-btn:hover {
+    background: #7b2a9e;
+    transform: translateY(-1px);
+}
+
+/* Main Game Table */
+.game-table {
+    background: radial-gradient(ellipse at center, #2d5a3d 0%, #1a4a2e 100%);
+    border: 8px solid #8b4513;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.game-table::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 2px solid #d4af37;
+    border-radius: 15px;
+    pointer-events: none;
+}
+
+/* Dealer and Player Areas */
+.dealer-area, .player-area {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.dealer-area h2, .player-area h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #d4af37;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.card-area {
+    min-height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+/* Hand Display Styles */
+.hand-display {
+    text-align: center;
+}
+
+.hand-display .cards {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    letter-spacing: 8px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hand-display .hand-value {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #d4af37;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 5px 15px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* Result Value Colors */
+.result-blackjack {
+    color: #ffd700 !important;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.result-win {
+    color: #00ff00 !important;
+}
+
+.result-lose {
+    color: #ff6347 !important;
+}
+
+.result-push {
+    color: #87ceeb !important;
+}
+
+.bet-info {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.bet-label {
+    color: #cccccc;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.bet-chips-display {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 8px;
+    min-height: 70px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border: 1px solid #d4af37;
+    flex-wrap: wrap;
+}
+
+.bet-chip-group {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    margin: 0 2px;
+}
+
+.bet-chip {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.7rem;
+    border: 3px solid;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+.bet-chip-stack {
+    position: relative;
+    display: inline-block;
+    margin: 0 1px;
+}
+
+.bet-chip-stack .bet-chip:not(:first-child) {
+    margin-left: -40px;
+    margin-top: -4px;
+}
+
+.bet-chip-stack.casino-stack {
+    margin: 0 3px;
+}
+
+.bet-chip-stack.casino-stack .bet-chip:not(:first-child) {
+    margin-left: -42px;
+    margin-top: -5px;
+}
+
+.bet-chip-stack .stack-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: linear-gradient(135deg, #ff4444, #cc0000);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+}
+
+.casino-stack .stack-count {
+    background: linear-gradient(135deg, #2196f3, #1976d2);
+    font-size: 0.6rem;
+    width: 18px;
+    height: 18px;
+    border: 1px solid white;
+}
+
+/* Scenario Info */
+.scenario-info {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #d4af37;
+}
+
+.hand-result {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.result-label {
+    color: #cccccc;
+}
+
+.result-value {
+    color: #d4af37;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.payout-instruction {
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-style: italic;
+}
+
+/* Game Controls */
+.game-controls {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+/* Payout Area */
+.payout-area {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #d4af37;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.payout-area h3 {
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.payout-chips {
+    min-height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px dashed #666;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    align-items: flex-end;
+}
+
+.payout-total {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.total-label {
+    color: #cccccc;
+}
+
+.total-value {
+    color: #d4af37;
+    margin-left: 10px;
+}
+
+.payout-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.submit-btn {
+    background: #228b22;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background: #1e7b1e;
+}
+
+.clear-btn {
+    background: #ff6347;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.clear-btn:hover {
+    background: #e5533d;
+}
+
+/* Chip Tray */
+.chip-tray {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #d4af37;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.chip-tray h3 {
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.chip-denominations {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    padding: 10px;
+}
+
+/* Chip Styles */
+.chip {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 4px solid;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin: 0 auto;
+}
+
+.chip:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.chip:active {
+    transform: translateY(-1px);
+}
+
+/* Chip Denomination Colors */
+.chip-1 {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    border-color: #333333;
+    color: #333333;
+}
+
+.chip-2-50 {
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+    border-color: #8b008b;
+    color: white;
+}
+
+.chip-5 {
+    background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+    border-color: #800000;
+    color: white;
+}
+
+.chip-25 {
+    background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%);
+    border-color: #006400;
+    color: #333333;
+}
+
+.chip-100 {
+    background: linear-gradient(135deg, #000000 0%, #333333 100%);
+    border-color: #666666;
+    color: white;
+}
+
+.chip-500 {
+    background: linear-gradient(135deg, #800080 0%, #4b0082 100%);
+    border-color: #2e0054;
+    color: white;
+}
+
+.chip-1000 {
+    background: linear-gradient(135deg, #ffd700 0%, #ffb347 100%);
+    border-color: #b8860b;
+    color: #333333;
+}
+
+/* Chip Stack Effects */
+.chip-stack {
+    position: relative;
+    display: inline-block;
+    margin: 5px;
+}
+
+.chip-stack .chip:not(:first-child) {
+    margin-left: -60px;
+    margin-top: -5px;
+}
+
+/* Stack Count Indicator */
+.stack-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: linear-gradient(135deg, #ff4444, #cc0000);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    animation: stackCountPulse 0.3s ease;
+}
+
+@keyframes stackCountPulse {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Enhanced Payout Area */
+.payout-chips {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: flex-start;
+    gap: 5px;
+    padding: 15px;
+    min-height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px dashed #666;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.payout-chips:empty::before {
+    content: 'Drop chips here';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #666;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* Payout Chip Enhancements */
+.payout-chip {
+    margin: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.payout-chip:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(255, 0, 0, 0.4);
+    z-index: 100;
+}
+
+.payout-chip:active {
+    transform: translateY(-1px) scale(1.02);
+}
+
+/* Chip Selection States */
+.chip-unavailable {
+    opacity: 0.5;
+    cursor: not-allowed !important;
+}
+
+.chip-unavailable:hover {
+    transform: none !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.chip-has-selection::after {
+    content: attr(data-selected-count);
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff0000;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+.payout-chip {
+    margin: 2px;
+    cursor: pointer;
+}
+
+.payout-chip:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 12px rgba(255, 0, 0, 0.4);
+}
+
+/* Chip Hover Info */
+.chip-hover-info {
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(5px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Feedback Area */
+.feedback-area {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid #d4af37;
+    border-radius: 15px;
+    padding: 20px;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feedback-content {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.feedback-success {
+    color: #00ff00;
+    font-weight: bold;
+}
+
+.feedback-error {
+    color: #ff6347;
+    font-weight: bold;
+}
+
+.feedback-info {
+    color: #87ceeb;
+}
+
+/* Enhanced Feedback Styles */
+.feedback-animate {
+    animation: feedbackSlideIn 0.4s ease;
+}
+
+@keyframes feedbackSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.feedback-icon {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.feedback-message {
+    line-height: 1.5;
+}
+
+.feedback-retry {
+    margin-top: 10px;
+    font-style: italic;
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* Validation Details */
+.validation-details {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    border-left: 4px solid #d4af37;
+}
+
+.validation-details p {
+    margin: 5px 0;
+}
+
+/* Payout Explanation */
+.payout-explanation {
+    text-align: left;
+}
+
+.calculation-steps {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.calculation-step {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.calculation-step:last-child {
+    border-bottom: none;
+    font-weight: bold;
+    color: #d4af37;
+}
+
+/* Progress Stats */
+.progress-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.stat-label {
+    color: #cccccc;
+}
+
+.stat-value {
+    font-weight: bold;
+    color: #d4af37;
+}
+
+/* Welcome Instructions */
+.welcome-instructions {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.welcome-instructions ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+.welcome-instructions li {
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+/* Educational Tips */
+.educational-tip {
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    border-radius: 8px;
+    animation: tipFadeIn 0.3s ease;
+}
+
+@keyframes tipFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tip-content {
+    color: #ffd700;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Feedback History */
+.feedback-history {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 15px;
+}
+
+.history-item {
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.2);
+    border-left: 3px solid;
+}
+
+.history-item.feedback-success {
+    border-left-color: #00ff00;
+}
+
+.history-item.feedback-error {
+    border-left-color: #ff6347;
+}
+
+.history-item.feedback-info {
+    border-left-color: #87ceeb;
+}
+
+.history-message {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.history-time {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    text-align: right;
+}
+
+/* Detailed Stats */
+.detailed-stats {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.stats-section {
+    margin: 20px 0;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border-left: 4px solid #d4af37;
+}
+
+.stats-section h5 {
+    color: #d4af37;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.performance-rating {
+    text-align: center;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    border: 2px solid currentColor;
+}
+
+/* Button Styles in Feedback */
+.feedback-content button {
+    margin: 5px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.feedback-content button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 1200px) {
+    .game-container {
+        min-width: 1024px;
+        overflow-x: auto;
+        padding: 15px;
+    }
+    
+    .game-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .chip-denominations {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .game-container {
+        min-width: 1024px;
+        padding: 10px;
+    }
+    
+    .game-controls {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .chip-denominations {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+    
+    .chip {
+        width: 70px;
+        height: 70px;
+        font-size: 0.8rem;
+    }
+    
+    .payout-chips {
+        min-height: 120px;
+    }
+    
+    .game-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .header-buttons {
+        justify-content: center;
+    }
+}
+
+/* Touch Device Enhancements */
+@media (hover: none) and (pointer: coarse) {
+    .chip {
+        width: 85px;
+        height: 85px;
+        font-size: 0.9rem;
+    }
+    
+    .chip:hover {
+        transform: none;
+    }
+    
+    .chip:active {
+        transform: scale(0.95);
+        transition: transform 0.1s ease;
+    }
+    
+    .submit-btn, .clear-btn, .reset-btn, .stats-btn {
+        padding: 15px 25px;
+        font-size: 1.1rem;
+    }
+}
+
+/* High DPI Display Support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .chip {
+        border-width: 2px;
+    }
+    
+    .game-table::before {
+        border-width: 1px;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #0a2f1f 0%, #0f3d2a 100%);
+    }
+    
+    .game-table {
+        background: radial-gradient(ellipse at center, #1a3d2a 0%, #0f2a1e 100%);
+    }
+}
+
+/* Loading States */
+.loading-state {
+    opacity: 0.6;
+    pointer-events: none;
+    position: relative;
+}
+
+.loading-state::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin: -15px 0 0 -15px;
+    border: 3px solid rgba(212, 175, 55, 0.3);
+    border-radius: 50%;
+    border-top-color: #d4af37;
+    animation: spin 1s ease-in-out infinite;
+    z-index: 1000;
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .chip:hover {
+        transform: none;
+    }
+}
+
+/* Focus Styles for Keyboard Navigation */
+.chip:focus,
+.submit-btn:focus,
+.clear-btn:focus,
+.reset-btn:focus,
+.stats-btn:focus,
+.test-btn:focus {
+    outline: 3px solid #d4af37;
+    outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .game-table {
+        border-color: #ffffff;
+    }
+    
+    .chip {
+        border-width: 3px;
+    }
+    
+    .feedback-area {
+        border-color: #ffffff;
+    }
+}
+
+/* Keyboard Help Styles */
+.keyboard-help {
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.help-section {
+    margin: 15px 0;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border-left: 4px solid #d4af37;
+}
+
+.help-section h5 {
+    color: #d4af37;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.help-section p {
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+.help-section strong {
+    color: #ffffff;
+    background: rgba(212, 175, 55, 0.2);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+/* Chip Number Indicators */
+.chip-container {
+    position: relative;
+}
+
+.chip-container::before {
+    content: attr(data-number);
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #d4af37;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: bold;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.game-container:hover .chip-container::before {
+    opacity: 1;
+}
+
+/* Performance Optimizations */
+.chip, .payout-chip {
+    will-change: transform;
+}
+
+.feedback-area {
+    will-change: contents;
+}
+
+.game-table {
+    will-change: transform;
+}
+
+/* Test Results Styles */
+.test-results {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.test-summary {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border-left: 4px solid #9932cc;
+}
+
+.test-summary p {
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+/* Performance Metrics Styles */
+.performance-metrics {
+    text-align: left;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Screen Reader Only Content */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Skip Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #000;
+    color: #fff;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 10000;
+    border-radius: 4px;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Enhanced Focus Indicators */
+*:focus {
+    outline: 2px solid #d4af37;
+    outline-offset: 2px;
+}
+
+/* Reduce Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .chip:hover {
+        transform: none;
+    }
+    
+    .loading-spinner {
+        animation: none;
+        border: 3px solid #d4af37;
+    }
+}
+
+/* High Contrast Mode Enhancements */
+@media (prefers-contrast: high) {
+    .game-container {
+        background: #000;
+        color: #fff;
+    }
+    
+    .game-table {
+        background: #000;
+        border-color: #fff;
+    }
+    
+    .chip {
+        border-width: 3px;
+        border-color: #fff;
+    }
+    
+    .feedback-area {
+        border-color: #fff;
+        background: #000;
+    }
+    
+    button {
+        border: 2px solid #fff;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .game-container {
+        background: white;
+        color: black;
+    }
+    
+    .chip-tray,
+    .payout-area,
+    .header-buttons {
+        display: none;
+    }
+    
+    .feedback-area {
+        border: 1px solid black;
+        background: white;
+    }
+}
+
+/* Performance Optimizations */
+.chip,
+.payout-chip,
+.feedback-area,
+.game-table {
+    contain: layout style paint;
+}
+
+/* GPU Acceleration for Smooth Animations */
+.chip,
+.payout-chip {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Optimize Repaints */
+.score-display,
+.payout-total {
+    will-change: contents;
+}
+
+/* Memory Optimization */
+.chip-stack {
+    contain: strict;
+}
+
+/* Lazy Loading Optimization */
+.feedback-content img {
+    loading: lazy;
+}
+
+/* Content Security */
+.feedback-content {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Animation Classes */
+.chip-moving {
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 100;
+}
+
+.chip-selected {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+    animation: chipPulse 0.3s ease;
+}
+
+@keyframes chipPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1.1); }
+}
+
+/* Loading Animation */
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #d4af37;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Smooth Transitions */
+.game-container {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Card Area Animations */
+.hand-display {
+    animation: slideInFromTop 0.5s ease-out;
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Score Update Animation */
+.score-display {
+    transition: all 0.3s ease;
+}
+
+.score-update {
+    animation: scoreFlash 0.5s ease;
+}
+
+@keyframes scoreFlash {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); color: #ffd700; }
+    100% { transform: scale(1); }
+}
+
+/* Button Hover Effects */
+.submit-btn, .clear-btn, .reset-btn, .stats-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.submit-btn::before, .clear-btn::before, .reset-btn::before, .stats-btn::before, .test-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.submit-btn:hover::before, .clear-btn:hover::before, .reset-btn:hover::before, .stats-btn:hover::before, .test-btn:hover::before {
+    left: 100%;
+}
+
+/* Payout Area Enhancements */
+.payout-area {
+    transition: all 0.3s ease;
+}
+
+.payout-area:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Chip Tray Enhancements */
+.chip-tray {
+    transition: all 0.3s ease;
+}
+
+.chip-tray:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Feedback Area Animations */
+.feedback-area {
+    transition: all 0.3s ease;
+}
+
+.feedback-success {
+    animation: successPulse 0.6s ease;
+}
+
+@keyframes successPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); box-shadow: 0 0 30px rgba(0, 255, 0, 0.3); }
+    100% { transform: scale(1); }
+}
+
+.feedback-error {
+    animation: errorShake 0.5s ease;
+}
+
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Scenario Transition */
+.scenario-transition {
+    animation: scenarioFade 0.8s ease;
+}
+
+@keyframes scenarioFade {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; transform: scale(0.98); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Chip Stack Animation */
+.chip-stack {
+    animation: stackBuild 0.4s ease;
+}
+
+@keyframes stackBuild {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive Animations */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Utility Classes */
+.hidden {
+    display: none;
+}
+
+.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
