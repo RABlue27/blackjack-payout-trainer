@@ -1,6 +1,6 @@
 # 🎰 Blackjack Payout Trainer
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)]([https://your-username.github.io/blackjack-payout-traine](https://rablue27.github.io/blackjack-payout-trainer/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)]([https://your-username.github.io/blackjack-payout-traine](https://rablue27.github.io/blackjack-payout-trainer/))
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-blue)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
