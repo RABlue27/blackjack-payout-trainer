@@ -6,7 +6,6 @@
 
 A fast-paced web-based training application for mastering blackjack payout calculations. Practice 3:2 blackjack payouts with realistic casino chip representations and instant feedback.
 
-![Blackjack Payout Trainer Screenshot](https://via.placeholder.com/800x400/0f4c3a/ffffff?text=Blackjack+Payout+Trainer)
 
 ## ⚡ Speed Training Mode
 
